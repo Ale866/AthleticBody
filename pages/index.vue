@@ -50,6 +50,7 @@ import GeneralInfo from '../components/GeneralInfo.vue'
 .title {
   font-size: xx-large;
   font-weight: 600;
+  text-align: center;
 }
 
 .subtitle {

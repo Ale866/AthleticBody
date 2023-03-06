@@ -39,28 +39,32 @@
         </ClientOnly>
       </div>
     </div>
-    <div class="img-container">
-      <img src="/poweredBy.png" alt="">
-    </div>
-    <div class="left">
+    <div class="left-section">
+      <div class="img-container">
+        <img src="/poweredBy.png" alt="">
+      </div>
+      <div class="routes-section title">
+        <div>Vuoi avere informazioni sui nostri corsi?</div>
+        <button class="button-slide slide-right">Clicca qui!</button>
+        <div>Hai bisogno di contattarci?</div>
+        <button class="button-slide slide-right">Clicca qui!</button>
+      </div>
     </div>
 
-
-    <div class="right">
-
-    </div>
   </div>
 </template>
 
 <style scoped>
 .main-section {
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: space-around;
   align-items: flex-start;
   flex-direction: row;
   width: 100%;
   height: 100%;
   margin-top: 40px;
+  /* margin-left: 4%;
+  margin-right: 2%; */
 }
 
 /* .main-section>div {
@@ -71,12 +75,11 @@
 } */
 
 .info-section {
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 45px;
   height: 100%
 }
 
@@ -134,10 +137,28 @@ iframe {
   margin-top: 30px;
 }
 
+.left-section {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
 .img-container {
-  display: grid;
-  place-items: center;
-  justify-items: end;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.routes-section {
+  height: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 
 img {
@@ -145,22 +166,58 @@ img {
   /* scale: 0.5; */
 }
 
-@media (width <= 1024px) {
+@media (width <=1024px) {
   .main-section {
     flex-direction: column;
     gap: 50px;
   }
 
-  .info-section{
+  .info-section {
     width: 90%;
     margin-left: 5%;
     gap: 40px;
   }
 
-  .img-container{
+  .left-section {
     width: 100%;
+  }
+
+  .img-container {
     justify-items: center;
     margin-top: 40px;
   }
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+button {
+  color: var(--blue);
+  transition: 0.25s;
+}
+
+.button-slide {
+  color: black;
+  border: 2px solid var(--blue);
+  /* border-radius: 14px; */
+  padding: 18px 36px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 var(--blue);
+  -webkit-transition: ease-out 0.8s;
+  -moz-transition: ease-out 0.8s;
+  transition: ease-out 0.8s;
+  text-transform: uppercase;
+}
+
+.slide-right:hover {
+  box-shadow: inset 400px 0 0 0 var(--blue);
+  color: white;
 }
 </style>
