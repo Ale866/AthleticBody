@@ -50,7 +50,7 @@
       </div>
       <div class="routes-section title">
         <div>Vuoi avere informazioni sui nostri corsi?</div>
-        <button class="button-slide slide-right">Clicca qui!</button>
+        <NuxtLink to="/courses"> <button class="button-slide slide-right"> Clicca qui!</button></NuxtLink>
         <div>Hai bisogno di contattarci?</div>
         <button class="button-slide slide-right">Clicca qui!</button>
       </div>
@@ -242,7 +242,7 @@ button {
     margin-top: 40px;
   }
 
-  .timetables{
+  .timetables {
     margin-top: 40px;
   }
 }

@@ -1,5 +1,6 @@
 <script setup>
 import GeneralInfo from '../components/GeneralInfo.vue'
+import Staff from '../components/Staff.vue'
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import GeneralInfo from '../components/GeneralInfo.vue'
     </div>
   </div>
   <GeneralInfo></GeneralInfo>
+  <Staff></Staff>
   <!-- <div><a href="https://www.instagram.com/athleticbodyclub/" target="_blank">assadas</a></div> -->
 </template>
 
