@@ -4,31 +4,41 @@
 <template>
   <div class="main-section">
     <div class="info-section">
-      <div>
-        <div class="title">Chi siamo</div>
-        <div class="info-content">
-          <h1>Athletic body club</h1>
-          <div class="text"> La palestra a Perugia Athletic Body Club nasce nel lontano 1988 e si configura subito come un
-            punto di riferimento per tutti gli amanti dello sport e del benessere, nel corso degli anni ha sempre operato
-            con professionalità e profondo rispetto dei suoi soci, focalizzandosi nella ricerca delle migliori metodiche
-            di allenamento e seguendo le continue innovazioni che da sempre caratterizzano il settore
+      <div class="general-info">
+        <div>
+          <div class="title">Chi siamo</div>
+          <div class="info-content">
+            <h1>Athletic body club</h1>
+            <div class="text"> La palestra a Perugia Athletic Body Club nasce nel lontano 1988 e si configura subito come
+              un
+              punto di riferimento per tutti gli amanti dello sport e del benessere, nel corso degli anni ha sempre
+              operato
+              con professionalità e profondo rispetto dei suoi soci, focalizzandosi nella ricerca delle migliori metodiche
+              di allenamento e seguendo le continue innovazioni che da sempre caratterizzano il settore
+            </div>
+          </div>
+        </div>
+        <div class="timetables">
+          <div class="title">I nostri orari</div>
+          <div class="timetables-content">
+            <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
+              <div><strong>lun - mar - giov: </strong>9:30-13:00 / 16:00-22:00</div>
+            </div>
+            <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
+              <div><strong>mer - ven: </strong>16:00-22:00</div>
+            </div>
+            <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
+              <div><strong>sab: </strong>9:30-13:00</div>
+            </div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="title">I nostri orari</div>
-        <div class="timetables-content">
-          <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
-            <div><strong>lun - mar - giov: </strong>9:30-13:00 / 16:00-22:00</div>
-          </div>
-          <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
-            <div><strong>mer - ven: </strong>16:00-22:00</div>
-          </div>
-          <div><font-awesome-icon icon="fa-solid fa-clock" class="icon" />
-            <div><strong>sab: </strong>9:30-13:00</div>
-          </div>
-        </div>
+      <div class="img-container">
+        <img src="/poweredBy.png" alt="">
       </div>
+    </div>
+    <!-- <hr> -->
+    <div class="info-section second-section">
       <div class="iframe">
         <div class="title">Dove trovarci</div>
         <ClientOnly>
@@ -38,11 +48,6 @@
           </iframe>
         </ClientOnly>
       </div>
-    </div>
-    <div class="left-section">
-      <div class="img-container">
-        <img src="/poweredBy.png" alt="">
-      </div>
       <div class="routes-section title">
         <div>Vuoi avere informazioni sui nostri corsi?</div>
         <button class="button-slide slide-right">Clicca qui!</button>
@@ -50,16 +55,15 @@
         <button class="button-slide slide-right">Clicca qui!</button>
       </div>
     </div>
-
   </div>
 </template>
 
 <style scoped>
 .main-section {
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  flex-direction: row;
+  flex-direction: row; */
   width: 100%;
   height: 100%;
   margin-top: 40px;
@@ -74,17 +78,30 @@
   height: 100%;
 } */
 
+
 .info-section {
-  width: 45%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+  flex-direction: row;
+  height: 50%;
+}
+
+.general-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-direction: column;
-  height: 100%
 }
 
 .info-section>div {
-  width: 100%;
+  width: 45%;
+  height: 100%;
+}
+
+.second-section {
+  margin-top: 40px;
 }
 
 .title {
@@ -133,7 +150,7 @@
 
 iframe {
   width: 100%;
-  height: 100%;
+  height: 80%;
   margin-top: 30px;
 }
 
@@ -159,33 +176,12 @@ iframe {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 img {
   width: 80%;
   /* scale: 0.5; */
-}
-
-@media (width <=1024px) {
-  .main-section {
-    flex-direction: column;
-    gap: 50px;
-  }
-
-  .info-section {
-    width: 90%;
-    margin-left: 5%;
-    gap: 40px;
-  }
-
-  .left-section {
-    width: 100%;
-  }
-
-  .img-container {
-    justify-items: center;
-    margin-top: 40px;
-  }
 }
 
 button {
@@ -219,5 +215,35 @@ button {
 .slide-right:hover {
   box-shadow: inset 400px 0 0 0 var(--blue);
   color: white;
+}
+
+@media (width <=1024px) {
+  /* .main-section {
+    flex-direction: column;
+    gap: 50px;
+  } */
+
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .info-section>div {
+    width: 90%;
+  }
+
+  .left-section {
+    width: 100%;
+  }
+
+  .img-container {
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .timetables{
+    margin-top: 40px;
+  }
 }
 </style>
