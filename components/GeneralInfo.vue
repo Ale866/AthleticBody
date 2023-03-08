@@ -50,11 +50,12 @@
       </div>
       <div class="routes-section title">
         <div>Vuoi avere informazioni sui nostri corsi?</div>
-        <NuxtLink to="/courses"> <button class="button-slide slide-right"> Clicca qui!</button></NuxtLink>
+        <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink>
         <div>Hai bisogno di contattarci?</div>
-        <button class="button-slide slide-right">Clicca qui!</button>
+        <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink>
       </div>
     </div>
+    <Staff></Staff>
   </div>
 </template>
 
@@ -182,39 +183,6 @@ iframe {
 img {
   width: 80%;
   /* scale: 0.5; */
-}
-
-button {
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
-}
-
-button {
-  color: var(--blue);
-  transition: 0.25s;
-}
-
-.button-slide {
-  color: black;
-  border: 2px solid var(--blue);
-  /* border-radius: 14px; */
-  padding: 18px 36px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 0 var(--blue);
-  -webkit-transition: ease-out 0.8s;
-  -moz-transition: ease-out 0.8s;
-  transition: ease-out 0.8s;
-  text-transform: uppercase;
-}
-
-.slide-right:hover {
-  box-shadow: inset 400px 0 0 0 var(--blue);
-  color: white;
 }
 
 @media (width <=1024px) {

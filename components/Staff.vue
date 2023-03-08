@@ -46,23 +46,84 @@ const staff = ref([{
   attributes: ["danza orientale per il femminile"]
 }
 ])
-
-
-
 </script>
 
 <template>
-  <div v-for="person in staff">
-    <img :src="'staff/' + person.path">
-    <div class="name">
-      {{ person.name }}
-    </div>
-    <div v-for="attr in person.attributes">
-      <div>{{ attr }}</div>
+  <h1>Lo staff a tua disposizione</h1>
+  <div class="staff-container">
+    <div class="staff-element" v-for="person in staff">
+      <img :src="'staff/' + person.path">
+      <h3 class="name">
+        {{ person.name }}
+      </h3>
+      <div class="member-info" v-for="attr in person.attributes">
+        <font-awesome-icon icon="fa-solid fa-dumbbell" class="icon" />
+        <div class="text">{{ attr }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-div {}
-</style>
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.text,
+.name {
+  text-align: center;
+}
+
+.staff-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 50px;
+}
+
+.staff-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 20%;
+  width: 100%;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.member-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (width <=1260px) {
+  h1{
+    margin-top: 0;
+  }
+  .staff-container {
+    justify-content: space-around;
+  }
+
+  .staff-element {
+    flex: 33%;
+    /* width: 30%; */
+  }
+
+}
+
+@media (width <=1000px) {
+ 
+  .staff-element {
+    flex: 50%;
+    /* width: 30%; */
+  }
+}</style>

@@ -9,6 +9,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 
 // You can add your icons directly in this plugin. See other examples for how you
 // can add other styles or just individual icons.
+// console.log(fab);
 library.add(fab, far, fas)
 
 // Register the component globally

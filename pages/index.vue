@@ -14,7 +14,6 @@ import Staff from '../components/Staff.vue'
     </div>
   </div>
   <GeneralInfo></GeneralInfo>
-  <Staff></Staff>
   <!-- <div><a href="https://www.instagram.com/athleticbodyclub/" target="_blank">assadas</a></div> -->
 </template>
 
