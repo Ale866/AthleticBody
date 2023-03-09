@@ -52,7 +52,7 @@
         <div>Vuoi avere informazioni sui nostri corsi?</div>
         <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink>
         <div>Hai bisogno di contattarci?</div>
-        <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink>
+        <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink>
       </div>
     </div>
     <Staff></Staff>

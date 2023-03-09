@@ -56,9 +56,11 @@ const staff = ref([{
       <h3 class="name">
         {{ person.name }}
       </h3>
-      <div class="member-info" v-for="attr in person.attributes">
-        <font-awesome-icon icon="fa-solid fa-dumbbell" class="icon" />
-        <div class="text">{{ attr }}</div>
+      <div class="members-container">
+        <div class="member-info" v-for="attr in person.attributes">
+          <font-awesome-icon icon="fa-solid fa-dumbbell" class="icon" />
+          <div class="text">{{ attr }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,6 +75,10 @@ h1 {
 .text,
 .name {
   text-align: center;
+}
+
+h3{
+  margin-top: 10px;
 }
 
 .staff-container {
@@ -91,6 +97,10 @@ h1 {
   flex-direction: column;
   flex: 20%;
   width: 100%;
+}
+
+.members-container{
+  text-transform: capitalize;
 }
 
 img {

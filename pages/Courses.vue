@@ -69,13 +69,10 @@ const courses = ref([
 </script>
 
 <template>
-  <div>
-
-    <NuxtLink class="abs" to="/"><Button text="torna indietro"></Button></NuxtLink>
-  </div>
+    <!-- <NuxtLink class="abs" to="/"><Button text="torna indietro"></Button></NuxtLink> -->
   <div class="container">
     <div class="header">
-      <img class="logo" src="logo-150x150.png" alt="">
+      <NuxtLink to="/"> <img class="logo" src="logo-150x150.png" alt=""> </NuxtLink> 
       <h1>Corsi a disposizione</h1>
       <h4>Clicca su un qualsiasi corso per avere ulteriori informazioni</h4>
     </div>
@@ -91,22 +88,17 @@ const courses = ref([
 </template>
 
 <style scoped>
-.a {
-  width: 100%;
-  height: 100vh;
-}
-
 .logo {
   filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
 }
 
 .container {
-  background-color: #e1e9f6;
+  background-color: var(--cyan);
   width: 100%;
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  align-items: start;
+  /* align-items: start; */
   flex-direction: column;
   gap: 100px;
 }
@@ -125,7 +117,7 @@ h4 {
 }
 
 .course-element {
-  flex: 25%;
+  /* flex: 25%; */
   display: flex;
   gap: 0;
   justify-content: center;
@@ -155,6 +147,7 @@ h4 {
 }
 
 .courses-container {
+  gap: 100px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -188,8 +181,8 @@ h4 {
 
 
 .course-image {
-  width: 360;
-  height: 280px;
+  width: 250px;
+  height: 200px;
   border-radius: 15px 15px 0 0;
 }
 </style>
