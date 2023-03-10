@@ -49,18 +49,18 @@ dialog {
 }
 
 .modal-enter-active {
-  animation: modal 0.3s ease-out;
+  animation: modal 0.5s ease-out;
 }
 
 @keyframes modal {
   from {
     opacity: 0;
-    transform: translateY(-50px) scale(0.8);
+    /* transform: translateY(-50px) scale(0.8); */
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    /* transform: translateY(0) scale(1); */
   }
 }
 
