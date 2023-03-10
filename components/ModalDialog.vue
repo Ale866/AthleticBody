@@ -29,10 +29,13 @@ const emit = defineEmits(['close'])
 
 dialog {
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   /* top: 30vh; */
   width: 50%;
   height: 60%;
-  margin: auto;
+  /* margin: auto; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
   padding: 1rem;
@@ -62,14 +65,14 @@ dialog {
 }
 
 @media (width <=1000px) {
-  dialog{
+  dialog {
     width: 65%;
     height: 70%;
   }
 }
 
 @media (width <=750px) {
-  dialog{
+  dialog {
     width: 85%;
     height: 80%;
   }
