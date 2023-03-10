@@ -1,11 +1,16 @@
 <script setup>
-import GeneralInfo from '../components/GeneralInfo.vue'
-import Staff from '../components/Staff.vue'
 </script>
 
 <template>
   <div class="bg">
     <div class="container">
+      <div class="announcement">
+
+        <TheWaning></TheWaning>
+      </div>
+      <div class="social-media">
+        <SocialMedia></SocialMedia>
+      </div>
       <div class="img-container">
         <img src="/logo-150x150.png" alt="">
       </div>
@@ -18,7 +23,24 @@ import Staff from '../components/Staff.vue'
 </template>
 
 <style scoped>
+.announcement{
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media{
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  color: white;
+}
 .bg {
+  position: relative;
   background-image: url("/bgImage.png");
   height: 100%;
   width: 100%;

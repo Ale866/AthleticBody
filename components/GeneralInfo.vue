@@ -56,6 +56,7 @@
       </div>
     </div>
     <Staff></Staff>
+    <TheFooter></TheFooter>
   </div>
 </template>
 
@@ -67,7 +68,8 @@
   flex-direction: row; */
   width: 100%;
   height: 100%;
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  /* background-color: var(--cyan); */
   /* margin-left: 4%;
   margin-right: 2%; */
 }

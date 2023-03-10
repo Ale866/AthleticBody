@@ -16,13 +16,11 @@
             <input placeholder="Nome e cognome" type="text" name="name" />
             <input placeholder="La tua email" type="text" name="email" />
             <input placeholder="Oggetto richiesta" type="text" name="subject" />
-            <textarea
-              placeholder="Corpo richiesta"
-              type="text"
-              name="name"
-              rows="18"
-            ></textarea>
+            <textarea placeholder="Corpo richiesta" type="text" name="name" rows="18"></textarea>
           </div>
+        </div>
+        <div class="btn">
+          <Button text="Invia"></Button>
         </div>
       </div>
       <div class="contact-info">
@@ -31,7 +29,11 @@
           <div><font-awesome-icon icon="fa-solid fa-phone" class="icon" />+39 075 37 66 818 (Fisso)</div>
           <div><font-awesome-icon icon="fa-solid fa-phone" class="icon" />+39 333 10 99 299 (Riccardo)</div>
           <div><font-awesome-icon icon="fa-solid fa-phone" class="icon" />+39 328 48 36 547 (Fabrizio)</div>
-          <div class="email"><font-awesome-icon icon="fa-solid fa-envelope" class="icon" />athleticbodyclub@gmail.com</div>
+          <div class="email"><font-awesome-icon icon="fa-solid fa-envelope" class="icon" />athleticbodyclub@gmail.com
+          </div>
+        </div>
+        <div class="social-media">
+          <SocialMedia></SocialMedia>
         </div>
       </div>
     </div>
@@ -40,9 +42,9 @@
 
 <style scoped>
 .logo {
-  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg)
-    brightness(98%) contrast(89%);
+  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
 }
+
 .container {
   background-color: var(--cyan);
   width: 100%;
@@ -57,12 +59,13 @@ h3 {
   margin: 0;
 }
 
-.icon{
-    width: 25px;
+.icon {
+  width: 25px;
   height: 25px;
   margin-right: 15px;
   color: var(--blue);
 }
+
 .header {
   display: flex;
   justify-content: center;
@@ -78,11 +81,13 @@ h3 {
   justify-content: center;
   width: 100%;
 }
+
 .contact-container {
   margin-top: 30px;
   height: 100%;
   display: flex;
 }
+
 .send-email-container {
   width: 80%;
   height: 100%;
@@ -110,10 +115,10 @@ h3 {
   flex-direction: column;
 }
 
-.phone-container > div {
-    display: flex;
-    align-items: center;
-    text-transform: none;
+.phone-container>div {
+  display: flex;
+  align-items: center;
+  text-transform: none;
 }
 
 input,
@@ -147,7 +152,66 @@ textarea::placeholder {
     Helvetica Neue, Arial, Noto Sans, sans-serif;
 }
 
+.btn{
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.btn > *{
+  margin: 0;
+}
+
 .contact-info {
   width: 50%;
+}
+
+.social-media {
+  width: 100%;
+  color: var(--blue);
+}
+
+@media (width <=900px) {
+
+  .contact-container {
+    flex-direction: column;
+    gap: 50px;
+    height: 100%;
+  }
+
+  .send-email-container {
+    width: 100%;
+    height: 70%;
+  }
+
+  .contact-info {
+    height: 35%;
+    width: 100%;
+    /* height: ; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    /* height: 100%; */
+  }
+
+  textarea {
+    height: 30%;
+  }
+
+  .left {
+    justify-content: center;
+  }
+
+  .contact-info>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn{
+    margin-bottom: 0;
+  }
+
 }
 </style>

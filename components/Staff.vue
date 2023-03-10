@@ -17,7 +17,7 @@ const staff = ref([{
 },
 {
   name: "gian mario monachino",
-  path: "monachino.jpg",
+  path: "monachino.png",
   attributes: ["ninjutsu"]
 },
 {
@@ -49,17 +49,19 @@ const staff = ref([{
 </script>
 
 <template>
-  <h1>Lo staff a tua disposizione</h1>
-  <div class="staff-container">
-    <div class="staff-element" v-for="person in staff">
-      <img :src="'staff/' + person.path">
-      <h3 class="name">
-        {{ person.name }}
-      </h3>
-      <div class="members-container">
-        <div class="member-info" v-for="attr in person.attributes">
-          <font-awesome-icon icon="fa-solid fa-dumbbell" class="icon" />
-          <div class="text">{{ attr }}</div>
+  <div class="container">
+    <h1>Lo staff a tua disposizione</h1>
+    <div class="staff-container">
+      <div class="staff-element" v-for="person in staff">
+        <img :src="'staff/' + person.path">
+        <h3 class="name">
+          {{ person.name }}
+        </h3>
+        <div class="members-container">
+          <div class="member-info" v-for="attr in person.attributes">
+            <font-awesome-icon icon="fa-solid fa-dumbbell" class="icon" />
+            <div class="text">{{ attr }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -67,9 +69,16 @@ const staff = ref([{
 </template>
 
 <style scoped>
+
+.container{
+  width: 100%;
+  /* height: 100%; */
+}
+
 h1 {
   text-align: center;
   margin-top: 100px;
+  color: var(--blue);
 }
 
 .text,
@@ -77,7 +86,7 @@ h1 {
   text-align: center;
 }
 
-h3{
+h3 {
   margin-top: 10px;
 }
 
@@ -95,11 +104,11 @@ h3{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex: 20%;
-  width: 100%;
+  /* flex: 33%; */
+  width: 33%;
 }
 
-.members-container{
+.members-container {
   text-transform: capitalize;
 }
 
@@ -116,24 +125,26 @@ img {
 }
 
 @media (width <=1260px) {
-  h1{
+  h1 {
     margin-top: 0;
   }
+
   .staff-container {
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
 
   .staff-element {
-    flex: 33%;
-    /* width: 30%; */
+    /* flex: 33%; */
+    width: 35%;
   }
 
 }
 
-@media (width <=1000px) {
- 
+@media (width <=680px) {
+
   .staff-element {
-    flex: 50%;
-    /* width: 30%; */
+    width: 100%;
+
   }
-}</style>
+}
+</style>
