@@ -4,7 +4,7 @@
   <div class="container">
     <div class="header">
       <NuxtLink to="/">
-        <img class="logo" src="logo-150x150.png" alt="" />
+        <img class="logo" src="/logo-150x150.png" alt="" />
       </NuxtLink>
       <h1>I nostri contatti</h1>
     </div>

@@ -109,7 +109,7 @@ function closeDialog() {
     </ModalDialog>
     <div class="header">
       <NuxtLink to="/">
-        <img class="logo" src="logo-150x150.png" alt="" />
+        <img class="logo" src="/logo-150x150.png" alt="" />
       </NuxtLink>
       <h1>Corsi a disposizione</h1>
       <h4>Clicca su un qualsiasi corso per avere ulteriori informazioni</h4>
