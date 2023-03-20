@@ -64,7 +64,7 @@ dialog {
   }
 }
 
-@media (width <=1120px) {
+@media (width <=1250px) {
   dialog {
     width: 65%;
     height: 70%;
@@ -74,7 +74,7 @@ dialog {
 @media (width <=750px) {
   dialog {
     width: 85%;
-    height: 80%;
+    height: 90%;
   }
 }
 </style>

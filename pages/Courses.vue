@@ -8,7 +8,7 @@ const courses = ref([
       name: "nome nome cognome",
       phone: "+39 123 456 7890",
     },
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "La Kick Boxing o kickboxing è uno sport da combattimento che trova le sue origini in Giappone, da dove poi si è diffuso fino ad arrivare negli USA. La disciplina combina le tecniche di calcio tipiche delle arti marziali orientali ai colpi di pugno, prerogativa del pugilato occidentale.  La KICKBOXING si configura come uno sport che può essere praticato da tutti, giovani, giovanissimi ed adulti di ogni età, migliorandone la forza e l'elasticità fisica ed accrescendone la sicurezza di sé. Ottimo rimedio contro lo stress, l’allenamento della kick boxing è intenso e dinamico svolgendo così un’ottima funzione cardiovascolare, che stimola un conseguente miglioramento della resistenza e della tonicità di tutti i distretti del corpo. ",
   },
   {
     name: "calisthenics",
@@ -18,7 +18,7 @@ const courses = ref([
       name: "nome nome cognome",
       phone: "+39 123 456 7890",
     },
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "Il Calisthenics è un tipo di allenamento a corpo libero che permette di migliorare forza, coordinazione e composizione corporea, imparando moltissimi esercizi, da semplici ad avanzati. Grazie a un allenamento funzionale che coinvolge tutti i distretti muscolari, si andrà a potenziare la parte superiore del corpo, senza tralasciare quella inferiore. Inoltre, il Calisthenics sviluppa flessibilità, mobilità articolare e agilità lavorando anche su tutti questi aspetti. Il Calisthenics è un tipo di allenamento che sfrutta il proprio peso corporeo come resistenza, per costruire muscoli e forza.  La disciplina prevede il raggiungimento di skills (abilità) più o meno complesse. Per poterle “conquistare” si devono padroneggiare alla perfezione gli esercizi di base ed è, anche per questo, che è un allenamento perfetto per i principianti perché prevede un lavoro progressivo. Indipendentemente dal livello attuale, ci sono esercizi di Calisthenics adatti alle esigenze di tutti. Vieni a provare!",
   },
   {
     name: "karate",
@@ -28,7 +28,7 @@ const courses = ref([
       name: "nome nome cognome",
       phone: "+39 123 456 7890",
     },
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "La Shōrei-Kan, “Scuola della Cortesia e delle Buone Maniere”, è stata fondata nel 1954 a Okinawa, luogo di nascita del karate, dal M° Toguchi Seikichi, allievo diretto del fondatore dello stile Gōjū-Ryū M° Miyagi Chōjun, ed è tra le maggiori scuole di karate al mondo. Attuale caposcuola in Europa è il M° Tamano Toshio il quale dirige stage e corsi istruttori ogni anno e in varie nazioni. Allo Heiwa-Dōjō, “il Dōjō della Pace e dell’Armonia”, si insegna il Karate-dō Gōjū-Ryū tradizionale di Okinawa. I bambini impareranno le basi divertendosi, accrescendo le abilità motorie e formando il proprio carattere mentre gli adulti inizieranno il proprio percorso di crescita e sviluppo tecnico, fisico e interiore. Shorei-Kan è autodifesa, esercizio, rispetto per il prossimo e tanto altro ancora. Vieni a provare quest’antica arte marziale e scegli la guida di un insegnante ufficiale Shorei-Kan. ",
   },
   {
     name: "circuit training",
@@ -58,7 +58,7 @@ const courses = ref([
       name: "nome nome cognome",
       phone: "+39 123 456 7890",
     },
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "La Shibukan Kakushi Dojo, è una scuola di studio tradizionale del Ninjutsu. Il Ninjutsu comprende lo studio di 36 scuole giapponesi, tra cui gli studenti possono apprendere le tecniche di combattimento, la strategia, l'infiltrazione, la sopravvivenza e altre abilità tradizionali associate alla cultura giapponese dei ninja. Gli studenti imparano tecniche di combattimento a mani nude e con armi tradizionali, come il katana, il bo, hanbo, jutte, shuriken e molte altre armi. Infine, la cultura e la storia ninja sono anche studiate per comprendere appieno la filosofia e la mentalità ninja. Il Dojo offre ai loro studenti molti benefici, tra cui l'aumento della forza fisica, della flessibilità e dell'equilibrio, nonché lo sviluppo dell'autodisciplina, della fiducia in se stessi e del rispetto per gli altri. Gli studenti imparano anche come difendersi in situazioni di pericolo e come gestire lo stress e l’ansia. Il Dojo (luogo di allenamento) è inclusivo e accogliente, dove studenti di tutte le età e di tutti i livelli di esperienza possono apprendere e migliorare le loro abilità marziali e la loro salute mentale e fisica.",
   },
 ]);
 
@@ -115,18 +115,9 @@ function closeDialog() {
       <h4>Clicca su un qualsiasi corso per avere ulteriori informazioni</h4>
     </div>
     <div class="courses-container">
-      <div
-        class="course-element"
-        v-for="course in courses"
-        :key="course"
-        @click="openDialog(course)"
-      >
+      <div class="course-element" v-for="course in courses" :key="course" @click="openDialog(course)">
         <div>
-          <img
-            class="course-image"
-            :src="'courses-img/' + course.path"
-            alt=""
-          />
+          <img class="course-image" :src="'courses-img/' + course.path" alt="" />
           <h3 class="course-name">{{ course.name }}</h3>
         </div>
       </div>
@@ -136,8 +127,7 @@ function closeDialog() {
 
 <style scoped>
 .logo {
-  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg)
-    brightness(98%) contrast(89%);
+  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
 }
 
 .exit {
@@ -157,7 +147,7 @@ function closeDialog() {
   vertical-align: bottom; */
 }
 
-.exit > * {
+.exit>* {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,25 +193,64 @@ h2 {
   object-fit: contain;
 }
 
-.img > img {
+.img>img {
   width: 60%;
   /* height: 90%; */
   height: auto;
   max-height: 90%;
 }
 
-@media (width <=1000px) {
+@media (width <=1200px) {
   .referent-info {
     width: 200%;
+    justify-content: flex-end;
   }
+
 }
 
-@media (width <= 600px) {
+@media (width <=1000px) {
+
+  .right {
+    display: none;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .referent-info {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  div.referent-info>div {
+    height: 40%;
+  }
+
+  div.description {
+    font-size: 0.85rem;
+    padding: 0;
+    margin-top: -25px;
+  }
+
+
+
+}
+
+h2 {
+  font-size: 20px;
+}
+
+/* @media (width <=600px) {
   div.description {
     padding: 0px 0px;
     width: 120%;
   }
-}
+} */
 
 .right {
   width: 50%;
@@ -249,16 +278,17 @@ h2 {
 }
 
 .description {
+  font-size: 0.9rem;
   height: 60%;
   text-align: center;
   padding: 0 15px;
-  line-height: 14px;
+  line-height: 16px;
   text-transform: none;
 }
 
 .referent-info {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   height: 30%;
@@ -278,7 +308,7 @@ h2 {
   align-items: center;
 }
 
-.referent-info > div {
+.referent-info>div {
   height: 60%;
   display: flex;
   justify-content: center;
@@ -340,12 +370,12 @@ h4 {
   row-gap: 75px;
 }
 
-.course-element > div {
+.course-element>div {
   display: flex;
   flex-direction: column;
 }
 
-.course-element > div:hover {
+.course-element>div:hover {
   animation: scale 1.5s forwards infinite;
 }
 
