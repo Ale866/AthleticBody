@@ -197,6 +197,7 @@ img {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    margin-top: 100px;
   }
 
   .info-section>div {

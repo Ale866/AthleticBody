@@ -4,7 +4,7 @@ let show = ref(false);
 onMounted(() => {
   setTimeout(() => {
     show.value = false
-  }, 5000);
+  }, 10000);
 });
 
 </script>
@@ -31,6 +31,14 @@ onMounted(() => {
   font-size: 16px;
   text-align: center;
 }
+
+@media (width <=600px) {
+  .warning{
+    text-transform: none;
+    font-size: 14px;
+  }
+}
+
 
 .modal-leave-active {
   animation: modal 0.3s ease-in reverse;

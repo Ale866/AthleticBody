@@ -1,18 +1,16 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div class="bg">
     <div class="container">
       <div class="announcement">
-
         <TheWaning></TheWaning>
       </div>
       <div class="social-media">
         <SocialMedia></SocialMedia>
       </div>
       <div class="img-container">
-        <img src="/logo-150x150.png" alt="">
+        <img src="/logo-150x150.png" alt="" />
       </div>
       <div class="title">Athletic body club</div>
       <div class="subtitle">Una palestra, tante discipline</div>
@@ -23,7 +21,7 @@
 </template>
 
 <style scoped>
-.announcement{
+.announcement {
   position: absolute;
   top: 80px;
   width: 100%;
@@ -33,7 +31,7 @@
   align-items: center;
 }
 
-.social-media{
+.social-media {
   position: absolute;
   top: 10px;
   right: 100px;
@@ -82,5 +80,11 @@
   font-family: "Bebas Neue", Sans-serif;
   letter-spacing: -3px;
   text-align: center;
+}
+
+@media (width <=600px) {
+  .subtitle {
+    font-size: 40px;
+  }
 }
 </style>

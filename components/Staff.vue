@@ -6,6 +6,11 @@ const staff = ref([{
   attributes: ["kick boxing", "personal trainer", "circuit trainer"]
 },
 {
+  name: "giacomo bartocci",
+  path: "",
+  attributes: ["calisthenics"]
+},
+{
   name: "riccardo tomei",
   path: "tomei.png",
   attributes: ["calisthenics", "personal trainer"]
@@ -39,11 +44,6 @@ const staff = ref([{
   name: "rosa zambrotta",
   path: "zambrotta.png",
   attributes: ["personal trainer"]
-},
-{
-  name: "francesca ales",
-  path: "ales.png",
-  attributes: ["danza orientale per il femminile"]
 }
 ])
 </script>

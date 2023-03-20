@@ -50,7 +50,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -166,11 +166,18 @@ textarea::placeholder {
 }
 
 .social-media {
+  height: 50px;
+  position: relative;
+  top: 0px;
   width: 100%;
   color: var(--blue);
 }
 
 @media (width <=900px) {
+
+  .container{
+    height: 150%;
+  }
 
   .contact-container {
     flex-direction: column;
