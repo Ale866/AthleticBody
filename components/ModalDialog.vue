@@ -39,7 +39,7 @@ dialog {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
   padding: 1rem;
-  background-color: var(--cyan);
+  background-color: white;
   z-index: 100;
   border: none;
 }

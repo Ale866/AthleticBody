@@ -32,32 +32,38 @@
             </div>
           </div>
         </div>
+        <div class="contacts">
+          <div class="title">Hai bisogno di contattarci?</div>
+          <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink>
+        </div>
       </div>
-      <div class="img-container">
-        <img src="/poweredBy.png" alt="">
-      </div>
-    </div>
-    <!-- <hr> -->
-    <div class="info-section second-section">
       <div class="iframe">
         <div class="title">Dove trovarci</div>
         <ClientOnly>
           <iframe frameborder="0" referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.googleapis.com/maps/embed/v1/place?key=AIzaSyBnEjUO5AIQG5laeY3UeUX5PJshfiV383M&q=Athletic+Body+Ssd"
+            src="https://maps.googleapis.com/maps/embed/v1/place?key=AIzaSyBnEjUO5AIQG5laeY3UeUX5PJshfiV383M&q=Athletic+Body+Club+S.S.D.,+Strada+Eugubina,+g,+Perugia,+PG"
             allowfullscreen>
           </iframe>
-        </ClientOnly>
-      </div>
+      </ClientOnly>
+    </div>
+      <!-- <div class="img-container">
+                    <img src="/poweredBy.png" alt="">
+                  </div> -->
+    </div>
+
+    <!-- <hr> -->
+  <div class="info-section second-section">
       <div class="routes-section title">
-        <div>Vuoi avere informazioni sui nostri corsi?</div>
-        <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink>
-        <div>Hai bisogno di contattarci?</div>
-        <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink>
+      <!-- <div>Vuoi avere informazioni sui nostri corsi?</div>
+                  <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink> -->
+        <!-- <div>Hai bisogno di contattarci?</div>
+                  <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink> -->
       </div>
     </div>
-    <Staff></Staff>
-    <TheFooter></TheFooter>
+    <!-- <Staff></Staff> -->
   </div>
+  <Courses></Courses>
+  <TheFooter></TheFooter>
 </template>
 
 <style scoped>
@@ -67,7 +73,7 @@
   align-items: flex-start;
   flex-direction: row; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* margin-top: 40px; */
   /* background-color: var(--cyan); */
   /* margin-left: 4%;
@@ -88,12 +94,12 @@
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: row;
-  height: 50%;
+  height: 60%;
 }
 
 .general-info {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -108,6 +114,7 @@
 }
 
 .title {
+  margin-top: 50px;
   font-size: 24px;
   color: var(--blue);
 }
@@ -121,6 +128,7 @@
 }
 
 .timetables-content {
+  margin-bottom: 50px;
   margin-top: 30px;
   width: 100%;
   display: flex;
@@ -153,8 +161,10 @@
 
 iframe {
   width: 100%;
-  height: 80%;
+  height: 75%;
+  min-height: 550px;
   margin-top: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .left-section {
@@ -187,17 +197,24 @@ img {
   /* scale: 0.5; */
 }
 
+.contacts {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contacts>.title {
+  margin: 0;
+}
+
 @media (width <=1024px) {
-  /* .main-section {
-    flex-direction: column;
-    gap: 50px;
-  } */
 
   .info-section {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    margin-top: 100px;
   }
 
   .info-section>div {

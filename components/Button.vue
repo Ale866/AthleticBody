@@ -13,7 +13,6 @@ button {
   border: 2px solid;
   font: inherit;
   line-height: 1;
-  margin: 0.5em;
   padding: 1em 2em;
   color: var(--blue);
   transition: 0.25s;

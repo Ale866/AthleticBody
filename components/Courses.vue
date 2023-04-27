@@ -1,13 +1,31 @@
 <script setup>
+
+let clientWidth = ref(0);
+
+const courseWidth = 320;
+
+let numElements = ref(0);
+
+let currentCourses = ref([])
+let previousNumElements = 0;
+let currentSliceValue = 5;
+let coursesNumber = 6; //6 corsi ma partono da indice 0, per fare lo slice è uno in meno
+
 const courses = ref([
   {
     name: "kick boxing",
     path: "kick.png",
     innerPath: "kickboxing-course.png",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [{
+      name: "fabrizio piro",
+      path: "piro.png",
+      phone: '1234567890'
+    }, {
+      name: "erika bellillo",
+      path: "bellillo.jpg",
+      phone: "1234567890"
+    }
+    ],
     desc: "La Kick Boxing o kickboxing è uno sport da combattimento che trova le sue origini in Giappone, da dove poi si è diffuso fino ad arrivare negli USA. La disciplina combina le tecniche di calcio tipiche delle arti marziali orientali ai colpi di pugno, prerogativa del pugilato occidentale.  La KICKBOXING si configura come uno sport che può essere praticato da tutti, giovani, giovanissimi ed adulti di ogni età, migliorandone la forza e l'elasticità fisica ed accrescendone la sicurezza di sé. Ottimo rimedio contro lo stress, l’allenamento della kick boxing è intenso e dinamico svolgendo così un’ottima funzione cardiovascolare, che stimola un conseguente miglioramento della resistenza e della tonicità di tutti i distretti del corpo. ",
   },
   {
@@ -73,6 +91,46 @@ function openDialog(course) {
 function closeDialog() {
   open.value = false;
 }
+
+function onScreenResize() {
+  window.addEventListener("resize", () => {
+    updateScreenWidth();
+  });
+}
+
+function updateScreenWidth() {
+  clientWidth.value = window.innerWidth;
+  numElements.value = Math.trunc(clientWidth.value / courseWidth);
+  if (numElements.value > 5) {
+    numElements.value = 5;
+  }
+  if (numElements.value != previousNumElements) {
+    currentCourses.value = courses.value.slice(0, numElements.value)
+  }
+  previousNumElements = numElements.value
+}
+
+onMounted(() => {
+  onScreenResize()
+  updateScreenWidth()
+})
+
+function advanceCourse() {
+  currentCourses.value.push(courses.value[currentSliceValue])
+  currentCourses.value.shift()
+  currentSliceValue++;
+  currentSliceValue = currentSliceValue % coursesNumber;
+}
+
+function decreaseCourse() {
+  currentCourses.value.pop()
+  currentCourses.value.unshift(courses.value[currentSliceValue])
+  currentSliceValue--;
+  if (currentSliceValue < 0) {
+    currentSliceValue = coursesNumber - 1
+  }
+}
+
 </script>
 
 <template>
@@ -88,7 +146,13 @@ function closeDialog() {
           <div class="info">
             <div class="description">{{ currentCourse.desc }}</div>
             <div class="referent-info">
-              <h2>Per maggiori informazioni</h2>
+              <div v-for="referent in currentCourse.referent" :key="index">
+                <img class="referent-image" :src="'staff/' + referent.path">
+                <div class="name">
+                  {{ referent.name }}
+                </div>
+                <div class="phone-number"> {{ referent.phone }}</div>
+              </div>
               <div>
                 <h3 class="referent-name">{{ currentCourse.referent.name }}</h3>
                 <div class="referent-phone">
@@ -108,19 +172,18 @@ function closeDialog() {
       </div>
     </ModalDialog>
     <div class="header">
-      <NuxtLink to="/">
-        <img class="logo" src="/logo-150x150.png" alt="" />
-      </NuxtLink>
       <h1>Corsi a disposizione</h1>
       <h4>Clicca su un qualsiasi corso per avere ulteriori informazioni</h4>
     </div>
     <div class="courses-container">
-      <div class="course-element" v-for="course in courses" :key="course" @click="openDialog(course)">
+      <button class="slideButton" @click="decreaseCourse"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
+      <div class="course-element" v-for="course in currentCourses" :key="course" @click="openDialog(course)">
         <div>
           <img class="course-image" :src="'courses-img/' + course.path" alt="" />
           <h3 class="course-name">{{ course.name }}</h3>
         </div>
       </div>
+      <button class="slideButton" @click="advanceCourse"><font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
     </div>
   </div>
 </template>
@@ -143,8 +206,6 @@ function closeDialog() {
   border-radius: 100%;
   color: white;
   cursor: pointer;
-  /* text-align: center;
-  vertical-align: bottom; */
 }
 
 .exit>* {
@@ -156,10 +217,9 @@ function closeDialog() {
 .container {
   background-color: var(--cyan);
   width: 100%;
-  min-height: 100%;
+  height: 70%;
   display: flex;
-  justify-content: center;
-
+  justify-content: space-evenly;
   flex-direction: column;
   gap: 100px;
 }
@@ -195,7 +255,6 @@ h2 {
 
 .img>img {
   width: 60%;
-  /* height: 90%; */
   height: auto;
   max-height: 90%;
 }
@@ -244,13 +303,6 @@ h2 {
 h2 {
   font-size: 20px;
 }
-
-/* @media (width <=600px) {
-  div.description {
-    padding: 0px 0px;
-    width: 120%;
-  }
-} */
 
 .right {
   width: 50%;
@@ -361,13 +413,25 @@ h4 {
 }
 
 .courses-container {
-  gap: 100px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
+  align-self: center;
+  /* flex-wrap: wrap; */
   row-gap: 75px;
+  padding-bottom: 50px;
+}
+
+.slideButton {
+  height: 200px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+}
+
+.slideButton>* {
+  height: 10%;
 }
 
 .course-element>div {
@@ -397,5 +461,18 @@ h4 {
   width: 250px;
   height: 200px;
   border-radius: 15px 15px 0 0;
+}
+
+.referent-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.referent-image {
+  width: 100px;
+  height: 100px;
 }
 </style>
