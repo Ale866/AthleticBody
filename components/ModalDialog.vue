@@ -34,7 +34,7 @@ dialog {
   transform: translate(-50%, -50%);
   /* top: 30vh; */
   width: 50%;
-  height: 60%;
+  height: 70%;
   /* margin: auto; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
@@ -71,9 +71,9 @@ dialog {
   }
 }
 
-@media (width <=750px) {
+@media (width <=600px) {
   dialog {
-    width: 85%;
+    width: 80%;
     height: 90%;
   }
 }

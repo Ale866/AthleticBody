@@ -7,96 +7,61 @@ let numElements = ref(0);
 
 let currentCourses = ref([]);
 let previousNumElements = 0;
-let currentSliceValue = 5;
+let currentSliceValue = 6;
 let coursesNumber = 6; //6 corsi ma partono da indice 0, per fare lo slice è uno in meno
 
 const staff = {
   piro: {
     name: "fabrizio piro",
     path: "piro.png",
-    // phone: "1234567890",
+    phone: "1234567890",
   },
   bartocci: {
     name: "giacomo bartocci",
-    path: "",
+    path: "bartocci.png",
+    phone: "1234567890",
   },
   tomei: {
     name: "riccardo tomei",
     path: "tomei.png",
+    phone: "1234567890",
   },
   corrado: {
     name: "davide corrado",
     path: "corrado.png",
+    phone: "1234567890",
   },
   monachino: {
     name: "gian mario monachino",
     path: "monachino.png",
+    phone: "1234567890",
   },
   bellillo: {
     name: "erika bellillo",
     path: "bellillo.jpg",
+    phone: "1234567890",
   },
   stinchi: {
     name: "claudio stinchi",
     path: "stinchi.jpg",
+    phone: "1234567890",
   },
   rinaldi: {
     name: "francesca rinaldi",
     path: "rinaldi.png",
+    phone: "1234567890",
   },
   zambrotta: {
     name: "rosa zambrotta",
     path: "zambrotta.png",
+    phone: "1234567890",
+  },
+  mercurio: {
+    name: "annalisa mercurio",
+    path: "mercurio.png",
+    phone: "1234567890",
   },
 };
-
-// const staff = ref([
-//   {
-//     name: "fabrizio piro",
-//     path: "piro.png",
-//     attributes: ["kick boxing", "personal trainer", "circuit trainer"],
-//   },
-//   {
-//     name: "giacomo bartocci",
-//     path: "",
-//     attributes: ["calisthenics"],
-//   },
-//   {
-//     name: "riccardo tomei",
-//     path: "tomei.png",
-//     attributes: ["calisthenics", "personal trainer"],
-//   },
-//   {
-//     name: "davide corrado",
-//     path: "corrado.png",
-//     attributes: ["calisthenics"],
-//   },
-//   {
-//     name: "gian mario monachino",
-//     path: "monachino.png",
-//     attributes: ["ninjutsu"],
-//   },
-//   {
-//     name: "erika bellillo",
-//     path: "bellillo.jpg",
-//     attributes: ["kick boxing"],
-//   },
-//   {
-//     name: "claudio stinchi",
-//     path: "stinchi.jpg",
-//     attributes: ["karate"],
-//   },
-//   {
-//     name: "francesca rinaldi",
-//     path: "rinaldi.png",
-//     attributes: ["personal trainer"],
-//   },
-//   {
-//     name: "rosa zambrotta",
-//     path: "zambrotta.png",
-//     attributes: ["personal trainer"],
-//   },
-// ]);
 
 const courses = ref([
   {
@@ -105,7 +70,8 @@ const courses = ref([
     innerPath: "kickboxing-course.png",
     referent: [
       staff.piro,
-      staff.bellillo
+      staff.bellillo,
+      staff.mercurio
     ],
     desc: "La Kick Boxing o kickboxing è uno sport da combattimento che trova le sue origini in Giappone, da dove poi si è diffuso fino ad arrivare negli USA. La disciplina combina le tecniche di calcio tipiche delle arti marziali orientali ai colpi di pugno, prerogativa del pugilato occidentale.  La KICKBOXING si configura come uno sport che può essere praticato da tutti, giovani, giovanissimi ed adulti di ogni età, migliorandone la forza e l'elasticità fisica ed accrescendone la sicurezza di sé. Ottimo rimedio contro lo stress, l’allenamento della kick boxing è intenso e dinamico svolgendo così un’ottima funzione cardiovascolare, che stimola un conseguente miglioramento della resistenza e della tonicità di tutti i distretti del corpo. ",
   },
@@ -118,7 +84,7 @@ const courses = ref([
       staff.bartocci,
       staff.corrado
     ],
-    desc: "Il Calisthenics è un tipo di allenamento a corpo libero che permette di migliorare forza, coordinazione e composizione corporea, imparando moltissimi esercizi, da semplici ad avanzati. Grazie a un allenamento funzionale che coinvolge tutti i distretti muscolari, si andrà a potenziare la parte superiore del corpo, senza tralasciare quella inferiore. Inoltre, il Calisthenics sviluppa flessibilità, mobilità articolare e agilità lavorando anche su tutti questi aspetti. Il Calisthenics è un tipo di allenamento che sfrutta il proprio peso corporeo come resistenza, per costruire muscoli e forza.  La disciplina prevede il raggiungimento di skills (abilità) più o meno complesse. Per poterle “conquistare” si devono padroneggiare alla perfezione gli esercizi di base ed è, anche per questo, che è un allenamento perfetto per i principianti perché prevede un lavoro progressivo. Indipendentemente dal livello attuale, ci sono esercizi di Calisthenics adatti alle esigenze di tutti. Vieni a provare!",
+    desc: "Il Calisthenics è un tipo di allenamento a corpo libero che permette di migliorare forza, coordinazione e composizione corporea, imparando moltissimi esercizi, da semplici ad avanzati. Grazie a un allenamento funzionale che coinvolge tutti i distretti muscolari, si andrà a potenziare la parte superiore del corpo, senza tralasciare quella inferiore. Il Calisthenics è un tipo di allenamento che sfrutta il proprio peso corporeo come resistenza, per costruire muscoli e forza.  La disciplina prevede il raggiungimento di skills (abilità) più o meno complesse. Per poterle “conquistare” si devono padroneggiare alla perfezione gli esercizi di base ed è un allenamento perfetto per i principianti perché prevede un lavoro progressivo. Indipendentemente dal livello attuale, ci sono esercizi di Calisthenics adatti alle esigenze di tutti. Vieni a provare!",
   },
   {
     name: "karate",
@@ -141,7 +107,7 @@ const courses = ref([
   {
     name: "personal training",
     path: "pt.png",
-    innerPath: "",
+    innerPath: "circuit-training-course.jpg",
     referent: [
       staff.tomei,
       staff.zambrotta,
@@ -188,6 +154,7 @@ function updateScreenWidth() {
     currentCourses.value = courses.value.slice(0, numElements.value);
   }
   previousNumElements = numElements.value;
+  currentSliceValue = numElements.value - 1
 }
 
 onMounted(() => {
@@ -196,19 +163,19 @@ onMounted(() => {
 });
 
 function advanceCourse() {
-  currentCourses.value.push(courses.value[currentSliceValue]);
-  currentCourses.value.shift();
   currentSliceValue++;
   currentSliceValue = currentSliceValue % coursesNumber;
+  currentCourses.value.push(courses.value[currentSliceValue]);
+  currentCourses.value.shift();
 }
 
 function decreaseCourse() {
-  currentCourses.value.pop();
-  currentCourses.value.unshift(courses.value[currentSliceValue]);
   currentSliceValue--;
   if (currentSliceValue < 0) {
     currentSliceValue = coursesNumber - 1;
   }
+  currentCourses.value.pop();
+  currentCourses.value.unshift(courses.value[currentSliceValue]);
 }
 </script>
 
@@ -224,27 +191,22 @@ function decreaseCourse() {
         <div class="content">
           <div class="info">
             <div class="description">{{ currentCourse.desc }}</div>
-            <div class="referent-info">
-              <div v-for="referent in currentCourse.referent" :key="index">
-                <img class="referent-image" :src="'staff/' + referent.path" />
-                <div class="name">
-                  {{ referent.name }}
+            <div class="course-images-container">
+              <div class="referent-info">
+                <div v-for="referent in currentCourse.referent" class="referent-item">
+                  <img class="referent-image" :src="'staff/' + referent.path" />
+                  <div class="referent-contact">
+                    <h4 class="name">
+                      {{ referent.name }}
+                    </h4>
+                    <div class="phone-number">{{ referent.phone }}</div>
+                  </div>
                 </div>
-                <div class="phone-number">{{ referent.phone }}</div>
+
               </div>
-              <div>
-                <h3 class="referent-name">{{ currentCourse.referent.name }}</h3>
-                <div class="referent-phone">
-                  <font-awesome-icon icon="fa-solid fa-phone" class="icon" />{{
-                    currentCourse.referent.phone
-                  }}
-                </div>
+              <div class="img">
+                <img :src="'courses-detail/' + currentCourse.innerPath" alt="" />
               </div>
-            </div>
-          </div>
-          <div class="right">
-            <div class="img">
-              <img :src="'courses-detail/' + currentCourse.innerPath" alt="" />
             </div>
           </div>
         </div>
@@ -258,18 +220,9 @@ function decreaseCourse() {
       <button class="slideButton" @click="decreaseCourse">
         <font-awesome-icon icon="fa-solid fa-chevron-left" />
       </button>
-      <div
-        class="course-element"
-        v-for="course in currentCourses"
-        :key="course"
-        @click="openDialog(course)"
-      >
+      <div class="course-element" v-for="course in currentCourses" :key="course" @click="openDialog(course)">
         <div>
-          <img
-            class="course-image"
-            :src="'courses-img/' + course.path"
-            alt=""
-          />
+          <img class="course-image" :src="'courses-img/' + course.path" alt="" />
           <h3 class="course-name">{{ course.name }}</h3>
         </div>
       </div>
@@ -282,9 +235,9 @@ function decreaseCourse() {
 
 <style scoped>
 .logo {
-  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg)
-    brightness(98%) contrast(89%);
+  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
 }
+
 
 .exit {
   position: absolute;
@@ -301,7 +254,7 @@ function decreaseCourse() {
   cursor: pointer;
 }
 
-.exit > * {
+.exit>* {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -328,8 +281,19 @@ function decreaseCourse() {
 }
 
 .info {
-  width: 50%;
+  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-images-container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 h2 {
@@ -338,54 +302,17 @@ h2 {
 }
 
 .img {
-  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   object-fit: contain;
 }
 
-.img > img {
-  width: 60%;
+.img>img {
+  width: 100%;
   height: auto;
   max-height: 90%;
-}
-
-@media (width <=1200px) {
-  .referent-info {
-    width: 200%;
-    justify-content: flex-end;
-  }
-}
-
-@media (width <=1000px) {
-  .right {
-    display: none;
-  }
-
-  .info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .referent-info {
-    width: 100%;
-    justify-content: flex-end;
-  }
-
-  div.referent-info > div {
-    height: 40%;
-  }
-
-  div.description {
-    font-size: 0.85rem;
-    padding: 0;
-    margin-top: -25px;
-  }
 }
 
 h2 {
@@ -405,7 +332,7 @@ h2 {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   margin-top: 10px;
 }
 
@@ -418,28 +345,45 @@ h2 {
 }
 
 .description {
-  font-size: 0.9rem;
-  height: 60%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
+  height: 25%;
   text-align: center;
   padding: 0 15px;
-  line-height: 16px;
+  line-height: 20px;
   text-transform: none;
 }
 
 .referent-info {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   flex-direction: column;
-  height: 30%;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 45%;
 }
 
-.icon {
+/* .referent-item:nth-child(even) {
+  flex-direction: row-reverse;
+} */
+
+.referent-contact {
+  height: 90px;
+  width: 100%;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.referent-contact>div {
+  margin-top: 10px;
+}
+
+/* .icon {
   width: 25px;
   height: 25px;
   margin-right: 15px;
   color: var(--blue);
-}
+} */
 
 .referent-phone {
   height: 40%;
@@ -448,12 +392,21 @@ h2 {
   align-items: center;
 }
 
-.referent-info > div {
+/* .referent-info>div {
   height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+} */
+
+.referent-item {
+  min-height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
 }
 
 h1 {
@@ -466,7 +419,6 @@ h1 {
 }
 
 h4 {
-  text-align: center;
   margin: 0;
 }
 
@@ -518,16 +470,16 @@ h4 {
   border: none;
 }
 
-.slideButton > * {
+.slideButton>* {
   height: 10%;
 }
 
-.course-element > div {
+.course-element>div {
   display: flex;
   flex-direction: column;
 }
 
-.course-element > div:hover {
+.course-element>div:hover {
   animation: scale 1.5s forwards infinite;
 }
 
@@ -551,15 +503,80 @@ h4 {
   border-radius: 15px 15px 0 0;
 }
 
-.referent-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 .referent-image {
   width: 100px;
   height: 100px;
+}
+
+@media (width <=1200px) {
+  /* .referent-info {
+    width: 200%;
+    justify-content: flex-end;
+  } */
+}
+
+@media (width < 750px) {
+
+  div.description {
+    height: 50%;
+    overflow: scroll;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .course-images-container {
+    height: max-content;
+  }
+
+  .referent-info {
+    width: 90%;
+    justify-content: space-evenly;
+  }
+
+  .referent-contact {
+    padding: 0;
+  }
+
+  .referent-contact>div {
+    margin-top: 5px;
+  }
+
+  .referent-item {}
+
+  .referent-image {
+    transform: scale(0.9);
+  }
+}
+
+@media (width <=1000px) {
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  div.img>img {
+    transform: scale(0.9);
+  }
+
+
+  /* .referent-info {
+    width: 100%;
+    justify-content: flex-end;
+  } */
+
+  /* div.referent-info>div {
+    height: 40%;
+  } */
+
+  div.description {
+    font-size: 0.9rem;
+    padding: 0;
+  }
 }
 </style>
