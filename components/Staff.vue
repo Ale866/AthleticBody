@@ -7,7 +7,7 @@ const staff = ref([{
 },
 {
   name: "giacomo bartocci",
-  path: "ales.png",
+  path: "",
   attributes: ["calisthenics"]
 },
 {

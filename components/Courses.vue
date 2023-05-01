@@ -1,30 +1,111 @@
 <script setup>
-
 let clientWidth = ref(0);
 
 const courseWidth = 320;
 
 let numElements = ref(0);
 
-let currentCourses = ref([])
+let currentCourses = ref([]);
 let previousNumElements = 0;
 let currentSliceValue = 5;
 let coursesNumber = 6; //6 corsi ma partono da indice 0, per fare lo slice è uno in meno
+
+const staff = {
+  piro: {
+    name: "fabrizio piro",
+    path: "piro.png",
+    // phone: "1234567890",
+  },
+  bartocci: {
+    name: "giacomo bartocci",
+    path: "",
+  },
+  tomei: {
+    name: "riccardo tomei",
+    path: "tomei.png",
+  },
+  corrado: {
+    name: "davide corrado",
+    path: "corrado.png",
+  },
+  monachino: {
+    name: "gian mario monachino",
+    path: "monachino.png",
+  },
+  bellillo: {
+    name: "erika bellillo",
+    path: "bellillo.jpg",
+  },
+  stinchi: {
+    name: "claudio stinchi",
+    path: "stinchi.jpg",
+  },
+  rinaldi: {
+    name: "francesca rinaldi",
+    path: "rinaldi.png",
+  },
+  zambrotta: {
+    name: "rosa zambrotta",
+    path: "zambrotta.png",
+  },
+};
+
+// const staff = ref([
+//   {
+//     name: "fabrizio piro",
+//     path: "piro.png",
+//     attributes: ["kick boxing", "personal trainer", "circuit trainer"],
+//   },
+//   {
+//     name: "giacomo bartocci",
+//     path: "",
+//     attributes: ["calisthenics"],
+//   },
+//   {
+//     name: "riccardo tomei",
+//     path: "tomei.png",
+//     attributes: ["calisthenics", "personal trainer"],
+//   },
+//   {
+//     name: "davide corrado",
+//     path: "corrado.png",
+//     attributes: ["calisthenics"],
+//   },
+//   {
+//     name: "gian mario monachino",
+//     path: "monachino.png",
+//     attributes: ["ninjutsu"],
+//   },
+//   {
+//     name: "erika bellillo",
+//     path: "bellillo.jpg",
+//     attributes: ["kick boxing"],
+//   },
+//   {
+//     name: "claudio stinchi",
+//     path: "stinchi.jpg",
+//     attributes: ["karate"],
+//   },
+//   {
+//     name: "francesca rinaldi",
+//     path: "rinaldi.png",
+//     attributes: ["personal trainer"],
+//   },
+//   {
+//     name: "rosa zambrotta",
+//     path: "zambrotta.png",
+//     attributes: ["personal trainer"],
+//   },
+// ]);
 
 const courses = ref([
   {
     name: "kick boxing",
     path: "kick.png",
     innerPath: "kickboxing-course.png",
-    referent: [{
-      name: "fabrizio piro",
-      path: "piro.png",
-      phone: '1234567890'
-    }, {
-      name: "erika bellillo",
-      path: "bellillo.jpg",
-      phone: "1234567890"
-    }
+    referent: [
+      staff.piro,
+      staff.bellillo
     ],
     desc: "La Kick Boxing o kickboxing è uno sport da combattimento che trova le sue origini in Giappone, da dove poi si è diffuso fino ad arrivare negli USA. La disciplina combina le tecniche di calcio tipiche delle arti marziali orientali ai colpi di pugno, prerogativa del pugilato occidentale.  La KICKBOXING si configura come uno sport che può essere praticato da tutti, giovani, giovanissimi ed adulti di ogni età, migliorandone la forza e l'elasticità fisica ed accrescendone la sicurezza di sé. Ottimo rimedio contro lo stress, l’allenamento della kick boxing è intenso e dinamico svolgendo così un’ottima funzione cardiovascolare, che stimola un conseguente miglioramento della resistenza e della tonicità di tutti i distretti del corpo. ",
   },
@@ -32,50 +113,49 @@ const courses = ref([
     name: "calisthenics",
     path: "cali.png",
     innerPath: "calisthenics-course.jpg",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [
+      staff.tomei,
+      staff.bartocci,
+      staff.corrado
+    ],
     desc: "Il Calisthenics è un tipo di allenamento a corpo libero che permette di migliorare forza, coordinazione e composizione corporea, imparando moltissimi esercizi, da semplici ad avanzati. Grazie a un allenamento funzionale che coinvolge tutti i distretti muscolari, si andrà a potenziare la parte superiore del corpo, senza tralasciare quella inferiore. Inoltre, il Calisthenics sviluppa flessibilità, mobilità articolare e agilità lavorando anche su tutti questi aspetti. Il Calisthenics è un tipo di allenamento che sfrutta il proprio peso corporeo come resistenza, per costruire muscoli e forza.  La disciplina prevede il raggiungimento di skills (abilità) più o meno complesse. Per poterle “conquistare” si devono padroneggiare alla perfezione gli esercizi di base ed è, anche per questo, che è un allenamento perfetto per i principianti perché prevede un lavoro progressivo. Indipendentemente dal livello attuale, ci sono esercizi di Calisthenics adatti alle esigenze di tutti. Vieni a provare!",
   },
   {
     name: "karate",
     path: "karate.png",
     innerPath: "karate-course.png",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [
+      staff.stinchi
+    ],
     desc: "La Shōrei-Kan, “Scuola della Cortesia e delle Buone Maniere”, è stata fondata nel 1954 a Okinawa, luogo di nascita del karate, dal M° Toguchi Seikichi, allievo diretto del fondatore dello stile Gōjū-Ryū M° Miyagi Chōjun, ed è tra le maggiori scuole di karate al mondo. Attuale caposcuola in Europa è il M° Tamano Toshio il quale dirige stage e corsi istruttori ogni anno e in varie nazioni. Allo Heiwa-Dōjō, “il Dōjō della Pace e dell’Armonia”, si insegna il Karate-dō Gōjū-Ryū tradizionale di Okinawa. I bambini impareranno le basi divertendosi, accrescendo le abilità motorie e formando il proprio carattere mentre gli adulti inizieranno il proprio percorso di crescita e sviluppo tecnico, fisico e interiore. Shorei-Kan è autodifesa, esercizio, rispetto per il prossimo e tanto altro ancora. Vieni a provare quest’antica arte marziale e scegli la guida di un insegnante ufficiale Shorei-Kan. ",
   },
   {
     name: "circuit training",
     path: "circuit.png",
     innerPath: "circuit-training-course.jpg",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [
+      staff.piro
+    ],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
   },
   {
     name: "personal training",
     path: "pt.png",
     innerPath: "",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [
+      staff.tomei,
+      staff.zambrotta,
+      staff.rinaldi
+    ],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
   },
   {
     name: "ninjutsu",
     path: "ninjutsu.jpg",
     innerPath: "ninjutsu-course.png",
-    referent: {
-      name: "nome nome cognome",
-      phone: "+39 123 456 7890",
-    },
+    referent: [
+      staff.monachino
+    ],
     desc: "La Shibukan Kakushi Dojo, è una scuola di studio tradizionale del Ninjutsu. Il Ninjutsu comprende lo studio di 36 scuole giapponesi, tra cui gli studenti possono apprendere le tecniche di combattimento, la strategia, l'infiltrazione, la sopravvivenza e altre abilità tradizionali associate alla cultura giapponese dei ninja. Gli studenti imparano tecniche di combattimento a mani nude e con armi tradizionali, come il katana, il bo, hanbo, jutte, shuriken e molte altre armi. Infine, la cultura e la storia ninja sono anche studiate per comprendere appieno la filosofia e la mentalità ninja. Il Dojo offre ai loro studenti molti benefici, tra cui l'aumento della forza fisica, della flessibilità e dell'equilibrio, nonché lo sviluppo dell'autodisciplina, della fiducia in se stessi e del rispetto per gli altri. Gli studenti imparano anche come difendersi in situazioni di pericolo e come gestire lo stress e l’ansia. Il Dojo (luogo di allenamento) è inclusivo e accogliente, dove studenti di tutte le età e di tutti i livelli di esperienza possono apprendere e migliorare le loro abilità marziali e la loro salute mentale e fisica.",
   },
 ]);
@@ -105,32 +185,31 @@ function updateScreenWidth() {
     numElements.value = 5;
   }
   if (numElements.value != previousNumElements) {
-    currentCourses.value = courses.value.slice(0, numElements.value)
+    currentCourses.value = courses.value.slice(0, numElements.value);
   }
-  previousNumElements = numElements.value
+  previousNumElements = numElements.value;
 }
 
 onMounted(() => {
-  onScreenResize()
-  updateScreenWidth()
-})
+  onScreenResize();
+  updateScreenWidth();
+});
 
 function advanceCourse() {
-  currentCourses.value.push(courses.value[currentSliceValue])
-  currentCourses.value.shift()
+  currentCourses.value.push(courses.value[currentSliceValue]);
+  currentCourses.value.shift();
   currentSliceValue++;
   currentSliceValue = currentSliceValue % coursesNumber;
 }
 
 function decreaseCourse() {
-  currentCourses.value.pop()
-  currentCourses.value.unshift(courses.value[currentSliceValue])
+  currentCourses.value.pop();
+  currentCourses.value.unshift(courses.value[currentSliceValue]);
   currentSliceValue--;
   if (currentSliceValue < 0) {
-    currentSliceValue = coursesNumber - 1
+    currentSliceValue = coursesNumber - 1;
   }
 }
-
 </script>
 
 <template>
@@ -147,11 +226,11 @@ function decreaseCourse() {
             <div class="description">{{ currentCourse.desc }}</div>
             <div class="referent-info">
               <div v-for="referent in currentCourse.referent" :key="index">
-                <img class="referent-image" :src="'staff/' + referent.path">
+                <img class="referent-image" :src="'staff/' + referent.path" />
                 <div class="name">
                   {{ referent.name }}
                 </div>
-                <div class="phone-number"> {{ referent.phone }}</div>
+                <div class="phone-number">{{ referent.phone }}</div>
               </div>
               <div>
                 <h3 class="referent-name">{{ currentCourse.referent.name }}</h3>
@@ -176,21 +255,35 @@ function decreaseCourse() {
       <h4>Clicca su un qualsiasi corso per avere ulteriori informazioni</h4>
     </div>
     <div class="courses-container">
-      <button class="slideButton" @click="decreaseCourse"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
-      <div class="course-element" v-for="course in currentCourses" :key="course" @click="openDialog(course)">
+      <button class="slideButton" @click="decreaseCourse">
+        <font-awesome-icon icon="fa-solid fa-chevron-left" />
+      </button>
+      <div
+        class="course-element"
+        v-for="course in currentCourses"
+        :key="course"
+        @click="openDialog(course)"
+      >
         <div>
-          <img class="course-image" :src="'courses-img/' + course.path" alt="" />
+          <img
+            class="course-image"
+            :src="'courses-img/' + course.path"
+            alt=""
+          />
           <h3 class="course-name">{{ course.name }}</h3>
         </div>
       </div>
-      <button class="slideButton" @click="advanceCourse"><font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
+      <button class="slideButton" @click="advanceCourse">
+        <font-awesome-icon icon="fa-solid fa-chevron-right" />
+      </button>
     </div>
   </div>
 </template>
 
 <style scoped>
 .logo {
-  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
+  filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg)
+    brightness(98%) contrast(89%);
 }
 
 .exit {
@@ -208,7 +301,7 @@ function decreaseCourse() {
   cursor: pointer;
 }
 
-.exit>* {
+.exit > * {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -253,7 +346,7 @@ h2 {
   object-fit: contain;
 }
 
-.img>img {
+.img > img {
   width: 60%;
   height: auto;
   max-height: 90%;
@@ -264,11 +357,9 @@ h2 {
     width: 200%;
     justify-content: flex-end;
   }
-
 }
 
 @media (width <=1000px) {
-
   .right {
     display: none;
   }
@@ -286,7 +377,7 @@ h2 {
     justify-content: flex-end;
   }
 
-  div.referent-info>div {
+  div.referent-info > div {
     height: 40%;
   }
 
@@ -295,9 +386,6 @@ h2 {
     padding: 0;
     margin-top: -25px;
   }
-
-
-
 }
 
 h2 {
@@ -360,7 +448,7 @@ h2 {
   align-items: center;
 }
 
-.referent-info>div {
+.referent-info > div {
   height: 60%;
   display: flex;
   justify-content: center;
@@ -430,16 +518,16 @@ h4 {
   border: none;
 }
 
-.slideButton>* {
+.slideButton > * {
   height: 10%;
 }
 
-.course-element>div {
+.course-element > div {
   display: flex;
   flex-direction: column;
 }
 
-.course-element>div:hover {
+.course-element > div:hover {
   animation: scale 1.5s forwards infinite;
 }
 
@@ -463,12 +551,11 @@ h4 {
   border-radius: 15px 15px 0 0;
 }
 
-.referent-info{
+.referent-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
 }
 
 .referent-image {
