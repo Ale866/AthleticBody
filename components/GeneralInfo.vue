@@ -63,6 +63,7 @@
     <!-- <Staff></Staff> -->
   </div>
   <Courses></Courses>
+  <Banners></Banners>
   <TheFooter></TheFooter>
 </template>
 

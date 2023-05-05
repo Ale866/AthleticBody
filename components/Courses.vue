@@ -7,7 +7,6 @@ let numElements = ref(0);
 
 let currentCourses = ref([]);
 let previousNumElements = 0;
-let currentSliceValue = 6;
 let coursesNumber = 6; //6 corsi ma partono da indice 0, per fare lo slice è uno in meno
 
 const staff = {
@@ -154,7 +153,6 @@ function updateScreenWidth() {
     currentCourses.value = courses.value.slice(0, numElements.value);
   }
   previousNumElements = numElements.value;
-  currentSliceValue = numElements.value - 1
 }
 
 onMounted(() => {
@@ -163,24 +161,19 @@ onMounted(() => {
 });
 
 function advanceCourse() {
-  currentSliceValue++;
-  currentSliceValue = currentSliceValue % coursesNumber;
-  currentCourses.value.push(courses.value[currentSliceValue]);
-  currentCourses.value.shift();
+  courses.value.push(courses.value[0]);
+  courses.value.shift();
+  currentCourses.value = courses.value.slice(0, numElements.value);
 }
 
 function decreaseCourse() {
-  currentSliceValue--;
-  if (currentSliceValue < 0) {
-    currentSliceValue = coursesNumber - 1;
-  }
-  currentCourses.value.pop();
-  currentCourses.value.unshift(courses.value[currentSliceValue]);
+  courses.value.unshift(courses.value[coursesNumber - 1])
+  courses.value.pop();
+  currentCourses.value = courses.value.slice(0, numElements.value);
 }
 </script>
 
 <template>
-  <!-- <NuxtLink class="abs" to="/"><Button text="torna indietro"></Button></NuxtLink> -->
   <div class="container">
     <ModalDialog :open="open" @close="closeDialog()">
       <div class="modal-container">
@@ -312,7 +305,7 @@ h2 {
 .img>img {
   width: 100%;
   height: auto;
-  max-height: 90%;
+  max-height: 85%;
 }
 
 h2 {
@@ -517,10 +510,7 @@ h4 {
 
 @media (width < 750px) {
 
-  div.description {
-    height: 50%;
-    overflow: scroll;
-  }
+
 
   .img {
     display: none;
@@ -552,6 +542,11 @@ h4 {
 
 @media (width <=1000px) {
 
+  div.description {
+    height: 50%;
+    overflow: scroll;
+  }
+
   .info {
     width: 100%;
     display: flex;
@@ -563,16 +558,6 @@ h4 {
   div.img>img {
     transform: scale(0.9);
   }
-
-
-  /* .referent-info {
-    width: 100%;
-    justify-content: flex-end;
-  } */
-
-  /* div.referent-info>div {
-    height: 40%;
-  } */
 
   div.description {
     font-size: 0.9rem;
