@@ -64,6 +64,7 @@
   </div>
   <Courses></Courses>
   <Banners></Banners>
+  <Promotions></Promotions>
   <TheFooter></TheFooter>
 </template>
 

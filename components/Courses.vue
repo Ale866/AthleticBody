@@ -101,7 +101,7 @@ const courses = ref([
     referent: [
       staff.piro
     ],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "L'allenamento a circuito è un programma fitness, che consente di impegnare poco tempo e ottenere i risultati prefissati allenandosi 3-4 volte a settimana. In un'unica sessione che può durare dai 20 ai 45 minuti, si possono avere gli stessi benefici di un allenamento anaerobico e/o aerobico, rispetto ai prolungati programmi fitness tradizionali. Si compone di una serie di stazioni consecutive nelle quali si viene chiamati ad eseguire in un tempo prestabilito differenti esercizi che a seconda della finalità ricercata variano per tipologia, modalità ed intensità. Ogni seduta d'allenamento mira ad allenare tutto il corpo. Particolarmente indicato per chi vuole allenarsi e impegnare poco tempo, può essere programmato per le esigenze di qualsiasi persona, per questo il Circuit training è adatto ai giovani, agli anziani, ai professionisti dello sport o del fitness, a chi non pratica attività sportiva da tempo e per chi intende iniziare un programma per la perdita di peso",
   },
   {
     name: "personal training",
@@ -112,7 +112,7 @@ const courses = ref([
       staff.zambrotta,
       staff.rinaldi
     ],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est sit blanditiis a. Excepturi quasi beatae possimus, et error at labore est asperiores impedit in aliquam, totam dolorem sint eligendi quisquam recusandae dicta enim atque. Nisi quam dolor impedit accusantium officiis natus placeat! Voluptates minima magnam enim non nemo debitis maxime?",
+    desc: "Il personal training è un servizio di allenamento fitness che prevede l'assistenza individuale di un personal trainer. Questo tipo di servizio è rivolto a coloro che desiderano raggiungere specifici obiettivi di fitness, migliorare la propria salute o semplicemente mantenere la forma fisica.",
   },
   {
     name: "ninjutsu",
