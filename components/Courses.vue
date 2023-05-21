@@ -13,7 +13,7 @@ const staff = {
   piro: {
     name: "fabrizio piro",
     path: "piro.png",
-    phone: "1234567890",
+    phone: "+39 328 483 6547",
   },
   bartocci: {
     name: "giacomo bartocci",
@@ -23,7 +23,7 @@ const staff = {
   tomei: {
     name: "riccardo tomei",
     path: "tomei.png",
-    phone: "1234567890",
+    phone: "+39 333 109 9299",
   },
   corrado: {
     name: "davide corrado",

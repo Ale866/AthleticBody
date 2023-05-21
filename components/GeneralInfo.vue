@@ -34,7 +34,13 @@
         </div>
         <div class="contacts">
           <div class="title">Hai bisogno di contattarci?</div>
-          <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink>
+          <div class="contact-container">
+            <div><font-awesome-icon icon="fa-solid fa-phone" class="icon" />+39 075 376 6818 (Fisso)</div>
+            <div class="email">
+              <font-awesome-icon icon="fa-solid fa-envelope" class="icon" />athleticbodyclub@gmail.com
+            </div>
+          </div>
+          <!-- <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink> -->
         </div>
       </div>
       <div class="iframe">
@@ -44,17 +50,17 @@
             src="https://maps.googleapis.com/maps/embed/v1/place?key=AIzaSyBnEjUO5AIQG5laeY3UeUX5PJshfiV383M&q=Athletic+Body+Club+S.S.D.,+Strada+Eugubina,+g,+Perugia,+PG"
             allowfullscreen>
           </iframe>
-      </ClientOnly>
-    </div>
+        </ClientOnly>
+      </div>
       <!-- <div class="img-container">
                     <img src="/poweredBy.png" alt="">
                   </div> -->
     </div>
 
     <!-- <hr> -->
-  <div class="info-section second-section">
+    <div class="info-section second-section">
       <div class="routes-section title">
-      <!-- <div>Vuoi avere informazioni sui nostri corsi?</div>
+        <!-- <div>Vuoi avere informazioni sui nostri corsi?</div>
                   <NuxtLink to="/courses"> <Button text="Clicca qui!"></Button></NuxtLink> -->
         <!-- <div>Hai bisogno di contattarci?</div>
                   <NuxtLink to="/contact"> <Button text="Clicca qui!"></Button></NuxtLink> -->
@@ -169,29 +175,53 @@ iframe {
   /* margin-bottom: 30px; */
 }
 
-.left-section {
-  width: 45%;
-  height: 100%;
+.contact-container {
+  height: 120%;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  width: 100%;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.img-container {
-  margin-top: 10px;
+.contact-container>div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: start;
   align-items: center;
+  flex-direction: row;
 }
 
-.routes-section {
-  height: 40%;
+.email {
+  text-transform: none;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  color: var(--blue);
+}
+
+.social-container {
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+}
+
+.contact-icon {
+  width: 25px;
+}
+
+.social-media {
+  height: 100%;
+  position: relative;
+  top: 0px;
+  color: var(--blue);
+}
+
+.social-media>div {
+  flex-direction: row;
 }
 
 img {
@@ -200,6 +230,7 @@ img {
 }
 
 .contacts {
+  width: 100%;
   height: 120px;
   display: flex;
   flex-direction: column;

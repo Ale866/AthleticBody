@@ -2,7 +2,40 @@
 
 
 const banners = [
-  "cali.png", "circuit.png", "karate.png", "kick.png", "ninjutsu.png"
+  {
+    path: "cali.png",
+    links: {
+      fb: "https://www.facebook.com/profile.php?id=100063347611763&locale=it_IT"
+    }
+  },
+  {
+    path: "circuit.png",
+    links: {
+
+    }
+  },
+  {
+    path: "karate.png",
+    links: {
+      fb: "https://www.facebook.com/shoreikanperugia?locale=it_IT",
+      ig: "https://www.instagram.com/shoreikanperugia/"
+    }
+  },
+  {
+    path: "kick.png",
+    links: {
+      yt: "https://youtube.com/@onikickboxingperugia1329",
+      ig: "https://www.instagram.com/oni_kickboxing_perugia/",
+    }
+  },
+  {
+    path: "ninjutsu.png",
+    links: {
+      ig: "https://instagram.com/ninjutsu_shibukan?igshid=YmMyMTA2M2Y=",
+      fb: "https://www.facebook.com/profile.php?id=100063795812874"
+    }
+  },
+
 ]
 let currentBanner = ref(-1);
 let interval = null;
@@ -10,7 +43,6 @@ let interval = null;
 function changeActiveBanner() {
   currentBanner.value = currentBanner.value + 1;
   currentBanner.value = currentBanner.value % 5;
-  console.log(currentBanner.value);
 }
 
 onMounted(() => {
@@ -32,13 +64,18 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="container">
-    <!-- <div class="header"> -->
-    <!-- <h1>Le nostre promozioni</h1> -->
-    <!-- </div> -->
     <div class="courses-container">
-      <div v-for="(banner, i) of banners" class="banner-element">
-        <div class="img">
-          <img class="image" :src="'courses-banner/' + banner" alt="" :class="{ active: currentBanner == i }">
+      <div v-for="(banner, i) in banners" class="banner-element">
+        <div class="img" :class="{ active: currentBanner == i }">
+          <img class="image" :src="'courses-banner/' + banner.path" alt="">
+          <div v-if="banner.links" class="links-section">
+            <a v-if="banner.links.ig" :href="banner.links.ig" target="_blank"><font-awesome-icon
+                icon="fa-brands fa-instagram" class="icon" /></a>
+            <a v-if="banner.links.yt" :href="banner.links.yt" target="_blank"><font-awesome-icon
+                icon="fa-brands fa-youtube" class="icon" /></a>
+            <a v-if="banner.links.fb" :href="banner.links.fb" target="_blank"><font-awesome-icon
+                icon="fa-brands fa-facebook" class="icon" /></a>
+          </div>
         </div>
       </div>
     </div>
@@ -46,6 +83,23 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+.links-section {
+  position: absolute;
+  top: 55%;
+  /* left: -50%; */
+  height: 130px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+a>* {
+  color: white;
+  width: 30px;
+  height: 30px;
+}
+
 .container {
   width: 100%;
   min-height: 70%;
@@ -66,6 +120,8 @@ onBeforeUnmount(() => {
 }
 
 .img {
+  position: relative;
+  height: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
