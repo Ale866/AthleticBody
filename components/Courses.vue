@@ -18,7 +18,7 @@ const staff = {
   bartocci: {
     name: "giacomo bartocci",
     path: "bartocci.png",
-    phone: "1234567890",
+    phone: "+39 349 108 5851",
   },
   tomei: {
     name: "riccardo tomei",
@@ -28,37 +28,37 @@ const staff = {
   corrado: {
     name: "davide corrado",
     path: "corrado.png",
-    phone: "1234567890",
+    phone: "+39 348 148 0076",
   },
   monachino: {
     name: "gian mario monachino",
     path: "monachino.png",
-    phone: "1234567890",
+    phone: "+39 347 930 4451",
   },
   bellillo: {
     name: "erika bellillo",
     path: "bellillo.jpg",
-    phone: "1234567890",
+    //phone: "1234567890",
   },
   stinchi: {
     name: "claudio stinchi",
     path: "stinchi.jpg",
-    phone: "1234567890",
+    phone: "+39 349 109 5008",
   },
   rinaldi: {
     name: "francesca rinaldi",
     path: "rinaldi.png",
-    phone: "1234567890",
+    //phone: "1234567890",
   },
   zambrotta: {
     name: "rosa zambrotta",
     path: "zambrotta.png",
-    phone: "1234567890",
+    //phone: "1234567890",
   },
   mercurio: {
     name: "annalisa mercurio",
     path: "mercurio.png",
-    phone: "1234567890",
+    //phone: "1234567890",
   },
 };
 
@@ -185,7 +185,7 @@ function decreaseCourse() {
           <div class="info">
             <div class="description">{{ currentCourse.desc }}</div>
             <div class="course-images-container">
-              <div class="referent-info">
+              <div v-if="currentCourse.name != 'personal training'" class="referent-info">
                 <div v-for="referent in currentCourse.referent" class="referent-item">
                   <img class="referent-image" :src="'staff/' + referent.path" />
                   <div class="referent-contact">
@@ -195,7 +195,10 @@ function decreaseCourse() {
                     <div class="phone-number">{{ referent.phone }}</div>
                   </div>
                 </div>
-
+              </div>
+              <div class="pt-course" v-else>
+                <h2>Contatta la palestra!</h2>
+                <div>+39 075 376 6818</div>
               </div>
               <div class="img">
                 <img :src="'courses-detail/' + currentCourse.innerPath" alt="" />
@@ -231,7 +234,15 @@ function decreaseCourse() {
   filter: invert(76%) sepia(96%) saturate(1485%) hue-rotate(204deg) brightness(98%) contrast(89%);
 }
 
-
+.pt-course{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 250px;
+  position: relative;
+  top: -50px;
+}
 .exit {
   position: absolute;
   top: -10px;
